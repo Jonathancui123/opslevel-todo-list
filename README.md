@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# OpsLevel Todo List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [View Deployed App](https://sleepy-austin-2c01e7.netlify.app/)
+
+Built in React!
 
 ## Available Scripts
 
