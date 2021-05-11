@@ -77,6 +77,11 @@ function App() {
     1: new Map<TaskId, Task>([[initialTaskId, initialTask]]),
   });
 
+  const getSortedPriorities = () => {
+    const priorities: number[] = Object.keys(todos).map((key) => parseInt(key));
+    return priorities.sort((a, b) => a - b);
+  };
+
   // O(n) is the best conceivable runtime for a render where n is the number of tasks
   return (
     <div className="app">
@@ -84,28 +89,24 @@ function App() {
         <h1 className="text-center mb-4">OpsLevel Todo List</h1>
 
         <TodoForm createNewTask={createNewTask} />
-        <MissingPriorities
-          priorities={Object.keys(todos).map((key) => parseInt(key))}
-        />
+        <MissingPriorities sortedPriorities={getSortedPriorities()} />
         <div>
-          {Object.keys(todos)
-            .sort()
-            .map((priority) => {
-              const tasks: JSX.Element[] = [];
-              todos[parseInt(priority)].forEach((task, taskId) => {
-                tasks.push(
-                  <TodoItem
-                    key={taskId}
-                    priority={parseInt(priority)}
-                    task={task}
-                    taskId={taskId}
-                    completeTask={completeTask}
-                    deleteTask={deleteTask}
-                  />
-                );
-              });
-              return tasks;
-            })}
+          {getSortedPriorities().map((priority) => {
+            const tasks: JSX.Element[] = [];
+            todos[priority].forEach((task, taskId) => {
+              tasks.push(
+                <TodoItem
+                  key={taskId}
+                  priority={priority}
+                  task={task}
+                  taskId={taskId}
+                  completeTask={completeTask}
+                  deleteTask={deleteTask}
+                />
+              );
+            });
+            return tasks;
+          })}
         </div>
       </div>
     </div>

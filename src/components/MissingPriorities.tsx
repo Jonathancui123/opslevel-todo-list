@@ -2,11 +2,10 @@ import React from "react";
 import { Alert } from "react-bootstrap";
 
 export default function MissingPriorities({
-  priorities,
+  sortedPriorities,
 }: {
-  priorities: number[];
+  sortedPriorities: number[];
 }) {
-  const sortedPriorities = priorities.sort();
   const missingPriorities: string[] = [];
   // Check for spaces between the priorities
   let prevPriority = 0;
