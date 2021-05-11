@@ -18,6 +18,7 @@ export default function TodoForm({
     }
     createNewTask(priority, description);
     setDescription("");
+    setPriority((oldPriority) => oldPriority + 1);
   };
 
   return (
