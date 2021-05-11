@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form, Col } from "react-bootstrap";
+import { Button, Form, Col, Tooltip, OverlayTrigger } from "react-bootstrap";
 
 export default function TodoForm({
   createNewTask,
@@ -25,9 +25,19 @@ export default function TodoForm({
       <Form onSubmit={handleSubmit}>
         <Form.Row>
           <Col xs="auto">
-            <Form.Label>
-              <b>Priority</b>
-            </Form.Label>
+            <OverlayTrigger
+              placement="top"
+              overlay={
+                <Tooltip id={`tooltip-top`}>
+                  Try a large number to see ellipses.
+                </Tooltip>
+              }
+            >
+              <Form.Label>
+                <b>Priority</b>
+              </Form.Label>
+            </OverlayTrigger>
+
             <Form.Control
               type="number"
               className="mb-2 mr-sm-2"

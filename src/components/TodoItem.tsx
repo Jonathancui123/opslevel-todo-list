@@ -23,6 +23,7 @@ export default function TodoItem({
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
+              maxWidth: "80%",
             }}
           >
             <div style={{ marginRight: "15px" }}>
@@ -30,7 +31,7 @@ export default function TodoItem({
                 <b>{priority}</b>
               </span>
             </div>
-            <div>
+            <div style={{ overflow: "hidden" }}>
               <span
                 style={{
                   textDecoration: task.isCompleted ? "line-through" : "",
