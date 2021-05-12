@@ -2,7 +2,7 @@
 
 ## [View Deployed App](https://sleepy-austin-2c01e7.netlify.app/)
 
-Built in React!
+Built in React with Bootstrap components!
 
 ## Available Scripts
 
