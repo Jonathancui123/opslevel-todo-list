@@ -12,7 +12,7 @@ export default function TodoForm({
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    if (!description || !priority) {
+    if (!description || !priority || !(priority > 0)) {
       setValidationError(true);
       return;
     }
@@ -78,7 +78,7 @@ export default function TodoForm({
         </Form.Row>
         {validationError ? (
           <div style={{ marginBottom: "15px", color: "red" }}>
-            Please provide a valid priority and description.
+            Please provide a priority greater than zero and non-empty description.
           </div>
         ) : null}
       </Form>
